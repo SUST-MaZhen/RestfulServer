@@ -9,19 +9,26 @@ import java.util.List;
 @Mapper //表示接口基于此注解实现CRUD
 public interface UserDao {
 
+    // create
     @Insert("insert into user(name,age) values(#{name},#{age})")
-    public void addUser(UserBean user);
+    void addUser(UserBean user);
 
+    // update
     @Update("update user set name=#{name},age=#{age} where id=#{id}")
     void updateUser(UserBean user);
 
+    // delete
     @Delete("delete from user where id=#{id}")
     void deleteUser(int id);
 
-    @Select("select id,name,age FROM user where name=#{name}")
-    UserBean findByName(@Param("name")String username);
+    // research
+    @Select("select id,name,age FROM user where id=#{id}")
+    UserBean findById(@Param("id")String id);
 
-    @Select("select id,name,age FROM user")
-    List<UserBean> findAll();
+//    @Select("select id,name,age FROM user where name=#{name}")
+//    List<UserBean> findByName(@Param("name")String username);
+
+//    @Select("select id,name,age FROM user")
+//    List<UserBean> findAll();
 
 }

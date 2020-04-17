@@ -7,13 +7,15 @@ import java.util.List;
 
 public interface UserService {
 
-    boolean addUser(UserBean user);
+    JSONObject addUser(UserBean user);
 
-    boolean updateUser(UserBean user);
+    JSONObject updateUser(UserBean user);
 
-    boolean deleteUser(int user);
+    JSONObject deleteUser(int user);
 
-    UserBean findUserByName(String username);
+    UserBean findUserById(String id);
 
-    List<UserBean> findAll();
+//    List<UserBean> findUserByName(String username);
+
+//    List<UserBean> findAll();
 }
