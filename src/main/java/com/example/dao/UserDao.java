@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserDao {
 
     // create
-    @Insert("insert into user(name,age) values(#{name},#{age})")
+    @Insert("insert into user(id, name,age) values(#{id},#{name},#{age})")
     void addUser(UserBean user);
 
     // update

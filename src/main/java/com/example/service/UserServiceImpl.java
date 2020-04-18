@@ -3,6 +3,7 @@ package com.example.service;
 import com.alibaba.fastjson.JSONObject;
 import com.example.bean.UserBean;
 import com.example.dao.UserDao;
+import com.example.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,8 @@ public class UserServiceImpl implements UserService{
     public JSONObject addUser(UserBean user) {
         JSONObject object = new JSONObject();
         try {
+            String id = Utils.getUUID();
+            user.setId(id);
             userDao.addUser(user);
             object.put("errCode",0);
             object.put("msg","add success");
